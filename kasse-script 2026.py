@@ -18,8 +18,7 @@ while True:
     pir.wait_for_motion()
     print('Motion detected')
     numberOfActivations = numberOfActivations+1
-    print('Number of activations:',numberOfActivations)
-    
+    print('Number of activations: ',numberOfActivations)
     blaeser.on()
     sleep(0.5)
     kranium.on()
@@ -30,18 +29,5 @@ while True:
     sleep(15.5)
     blaeser.off()
     kranium.off()
-    print('Check if movement stopped')
-    motion_stopped = False
-    for y in range(10): #Check 50 times for 0.1 mili seconds
-        if not pir.motion_detected:
-            motion_stopped = True
-            break
-        sleep(0.1)
-    if motion_stopped:
-        print('Movement stopped')
-        blaeser.off()
-        kranium.off()
-    else:
-        print('Movement still registered')
     print('Force delay')
-    sleep(15) #Force x seconds of delay before next cycle
+    sleep(8) #Force x seconds of delay before next cycle
